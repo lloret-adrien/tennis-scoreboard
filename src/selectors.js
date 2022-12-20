@@ -10,8 +10,8 @@ export const selectPointBeforeWin = (playerId) => {
     if (state.advantage === otherPlayerId) {
       return 3;
     }
-    const playerScore = state[playerId];
-    const otherPlayerScore = state[otherPlayerId];
+    const playerScore = state[playerId].points;
+    const otherPlayerScore = state[otherPlayerId].points;
     const pointsTo40 =
       playerScore === 0
         ? 3
@@ -25,15 +25,19 @@ export const selectPointBeforeWin = (playerId) => {
     }
     return pointsTo40 + 1;
   };
-};
+}
 
 export const selectPlayerHasAdvantage = (playerId) => {
   return (state) => state.advantage === playerId;
-};
+}
+
+export const selectPlayerHasService = (playerId) => {
+  return (state) => "player" + state.service === playerId;
+}
 
 export const selectPlayerScore = (playerId) => {
-  return (state) => state[playerId];
-};
+  return (state) => state[playerId].points;
+}
 
 export const selectDisplayText = (state) => {
   if (state.winner) {
@@ -43,7 +47,7 @@ export const selectDisplayText = (state) => {
       return "Joueur 2 gagne le jeu";
     }
   } else {
-    let text = "Le score est: " + state.player1 + " - " + state.player2;
+    let text = "Le score est: " + state.player1.points + " - " + state.player2.points;
     if (state.advantage) {
       if (state.advantage === "player1") {
         text += " avantage joueur 1";
@@ -53,11 +57,23 @@ export const selectDisplayText = (state) => {
     }
     return text;
   }
-};
+}
 
-export const selectPlayerPoints = (playerId) => {
+export const selectPlayerPoints = (playerId, set = 0) => {
   return (state) =>
-    state.history.filter((item) => item.winner === playerId).length;
-};
+    state.history[set]?.filter((item) => item.winner === playerId).length || 0
+}
 
-export const selectGameIsPlaying = (state) => state.playing;
+export const selectGameIsPlaying = (state) => state.playing
+
+export const selectCurrentSet = (state) => state.currentSet
+
+export const isOver = (state) => state.isOver
+
+export const playerWinSet = (playerId, set = 1) => {
+  return (state) => state[playerId].sets.includes(set)
+}
+
+export const selectPlayerName = (playerId) => {
+  return (state) => state[playerId].name
+}

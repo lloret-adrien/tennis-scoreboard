@@ -1,17 +1,17 @@
 import { useDispatch } from "react-redux"
-import { restartGame } from "./store"
+import { backtrack } from "./store"
 
-export function ResetButton() {
+export function Backtrack() {
   const dispatch = useDispatch()
 
   return (
     <button
       className="button"
       onClick={() => {
-        dispatch(restartGame())
+        dispatch(backtrack())
       }}
     >
-      Reset
+      Backtrack
     </button>
   )
 }

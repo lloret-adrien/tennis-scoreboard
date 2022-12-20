@@ -5,32 +5,32 @@ html {
 
 body {
   margin: 0;
+  background: #c85a19;
+}
+
+img {
+  width: 6rem;
+  margin-bottom: 1rem;
 }
 
 * {
   box-sizing: border-box;
 }
 
-#root {
-  padding: 2rem;
-  text-align: center;
-  flex-direction: column;
+#root > div {
   display: flex;
-  align-items: stretch;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  max-width: 500px;
-  margin: 0 auto;
+  height: 100vh;
+}
+
+.mt-10 {
+  margin-top: 10px;
 }
 
 p {
   margin: 0;
-}
-
-.buttons {
-  align-self: center;
-  display: flex;
-  flex-direction: column;
 }
 
 .buttons-row {
@@ -96,4 +96,85 @@ p {
   line-height: 1.5;
   display: flex;
   justify-content: space-between;
+}
+
+.player-sets {
+  width: 40px;
+  transition: background-color 500ms;
+}
+
+.player {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: #175d48;
+  color: white;
+  font-weight: bold;
+  border: 1px groove white;
+  height: 40px;
+}
+
+.player-name {
+  padding: 0.5rem 1rem;
+  padding-left: 2rem;
+  text-transform: uppercase;
+  justify-content: flex-start;
+}
+
+.lose {
+  color: #297150;
+}
+
+.usersSets {
+  display: flex;
+  flex-direction: row;
+}
+
+.current {
+  background-color: #55b384;
+  z-index: -1;
+  animation: newSet 500ms;
+}
+
+.player-points {
+  background-color: white;
+  color: #464948;
+  animation: newSet 500ms;
+}
+
+.scoreboard {
+  display: inline-flex;
+  flex-direction: row;
+}
+
+.players {
+  display: flex;
+  flex-direction: column;
+}
+
+.player-advantage {
+  transform: translateX(-40px);
+  z-index: -1;
+  visibility: hidden;
+  transition: all 200ms;
+}
+.player-advantage.show {
+  visibility: visible;
+  transform: translateX(0px);
+}
+
+.player-service::before {
+  position: absolute;
+  content: '//';
+  left: 1rem;
+}
+
+@keyframes newSet {
+  from {
+    transform: translateX(-40px);
+  }
+  to {
+    transform: translateX(0px);
+  }
 }

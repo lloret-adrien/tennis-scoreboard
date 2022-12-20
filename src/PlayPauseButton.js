@@ -1,10 +1,10 @@
-import { useSelector, useStore } from "react-redux";
-import { autoplay } from "./store";
-import { selectGameIsPlaying } from "./selectors";
+import { useSelector, useStore } from "react-redux"
+import { autoplay } from "./store"
+import { selectGameIsPlaying } from "./selectors"
 
 export function PlayPauseButton() {
-  const store = useStore();
-  const playing = useSelector(selectGameIsPlaying);
+  const store = useStore()
+  const playing = useSelector(selectGameIsPlaying)
 
   return (
     <button
@@ -13,7 +13,7 @@ export function PlayPauseButton() {
         autoplay(store);
       }}
     >
-      {playing ? "Jeu en cours..." : "Jouer"}
+      {playing ? "Playing..." : "Play"}
     </button>
-  );
+  )
 }
