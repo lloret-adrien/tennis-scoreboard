@@ -9,3 +9,6 @@ Pour lancer l'application:
 
 - `npm install` pour installer les dépendances
 - `npm run start` pour lancer l'application
+
+
+https://user-images.githubusercontent.com/60384986/208775911-80d82125-c1de-44f3-b44f-d81d6aec8b3c.mov
