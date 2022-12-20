@@ -1,6 +1,8 @@
-# 7150626-Gerez-letat-de-votre-app-avec-Redux
+<p align="center">
+ <img src="tennis.png" />
+</p>
 
 Pour lancer l'application:
 
-- `yarn install` pour installer les dépendances
-- `yarn start` pour lancer l'application
+- `npm install` pour installer les dépendances
+- `npm run start` pour lancer l'application
